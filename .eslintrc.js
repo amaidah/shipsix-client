@@ -9,7 +9,7 @@ module.exports = {
   extends: ["eslint:recommended"],
   overrides: [
     {
-      files: ["**/*.ts", "**/*.tsx", "**/*.js"],
+      files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.json"],
       parser: "@typescript-eslint/parser",
       settings: { react: { version: "detect" } },
       env: {

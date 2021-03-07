@@ -7,9 +7,12 @@ module.exports = {
   parserOptions: { ecmaVersion: 8 }, // to enable features such as async/await
   ignorePatterns: ["node_modules/*", ".next/*", ".out/*", ".eslintrc.js", "!.prettierrc.js"], // We don't want to lint generated files nor node_modules, but we want to lint .prettierrc.js (ignored by default by eslint)
   extends: ["eslint:recommended"],
+  rules: {
+    // "@typescript-eslint/explicit-module-boundary-types": "off",
+  },
   overrides: [
     {
-      files: ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.json"],
+      files: ["**/*.ts", "**/*.tsx", "*.js", "*.json"],
       parser: "@typescript-eslint/parser",
       settings: { react: { version: "detect" } },
       env: {
@@ -40,13 +43,14 @@ module.exports = {
 
         // I suggest this setting for requiring return types on functions only where useful
         "@typescript-eslint/explicit-function-return-type": [
-          "warn",
+          "off",
           {
             allowExpressions: true,
             allowConciseArrowFunctionExpressionsStartingWithVoid: true,
           },
         ],
-        
+        "@typescript-eslint/explicit-module-boundary-types": ["off"],
+
         // Prettier always needs to be last
         'prettier/prettier': ['error', {}, { usePrettierrc: true }], 
       },
